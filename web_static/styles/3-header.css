@@ -5,6 +5,11 @@ header{
     border-bottom: 1px solid #CCCCCC;
 }
 div{
-    position: absolute; right: 50%;
+    position: absolute;
+    right: 50%;
 }
+.image {
+    background-image: url("images/logo.png");
+}
+  
 
