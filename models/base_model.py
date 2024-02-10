@@ -2,11 +2,28 @@
 
 import uuid
 from datetime import datetime
-
 from models.__init__ import storage
 
+
+"""
+a class BaseModel that defines all common attributes/methods for other classes
+"""
 class BaseModel:
+    """
+    A class tha 
+
+    Attrirbutes:
+
+    Methods:
+
+    """
     def __init__(self, *args, **kwargs):
+        """
+        Constructs a new instance of the squere class.
+
+        parameters:
+        size (int): the size of a side of the square
+        """
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
