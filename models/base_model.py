@@ -2,7 +2,7 @@
 
 import uuid
 from datetime import datetime
-from models.__init__ import storage
+from __init__ import storage
 
 
 """
