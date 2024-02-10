@@ -1,11 +1,18 @@
 #!/usr/bin/python3
 
 from cmd import Cmd
+from typing import IO
+from models.user import BaseModel
 
 class HBNBCommand(Cmd):
     # intro = "Welcome to HBNBCommand. Type help or ? to list commands.\n"
     prompt = "(hbnb) "
     file = None  # Used to demonstrate the use of file input/output
+
+
+    def __init__(self):
+        super().__init__()
+        self.usrers = {}
 
     def help(self, line):
         print("\nDocumented commands (type help <topic>):")
