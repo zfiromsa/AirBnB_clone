@@ -2,13 +2,7 @@
 
 import json 
 from os import path
-from models.base_model import BaseModel
-from models.amenity import Amenity
-from models.user import User
-from models.city import City
-from models.place import Place
-from models.state import State
-from models.review import Review
+
 
 class FileStorage:
     __file_path = "file.json"
@@ -36,6 +30,13 @@ class FileStorage:
         try:
             with open(self.__file_path, "r") as file:
                 data = json.load(file)
+                from models.base_model import BaseModel
+                from models.amenity import Amenity
+                from models.user import User
+                from models.city import City
+                from models.place import Place
+                from models.state import State
+                from models.review import Review
                 for key, value in data.items():
                     if 'BaseModel' in key:
                         instance = BaseModel(**value)
