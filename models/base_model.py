@@ -39,13 +39,19 @@ class BaseModel:
             storage.new(self)
 
     def save(self):
+        """Update the instance of object with current date and time
+        """
         self.updated_at = datetime.now()
         storage.save()
 
     def __str__(self):
+        """Return a string representation of BaseModel
+        """
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
     
     def to_dict(self):
+        """Return the dictionary of object that contains keys and value
+        """
         obj = self.__dict__.copy()
         obj["__class__"] = self.__class__.__name__
         obj["update_at"] = self.updated_at.isoformat()
