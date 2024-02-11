@@ -2,7 +2,7 @@
 
 import uuid
 from datetime import datetime
-import models
+from models import storage
 
 """
 a class BaseModel that defines all common attributes/methods for other classes
@@ -35,13 +35,13 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            storage.new(self)
 
     def save(self):
         """Update the instance of object with current date and time
         """
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def __str__(self):
         """Return a string representation of BaseModel
@@ -56,3 +56,4 @@ class BaseModel:
         obj["update_at"] = self.updated_at.isoformat()
         obj["creat_at"] = self.created_at.isoformat()
         return obj
+
