@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-
-import uuid
-from datetime import datetime
-from models import storage
-
 """
 a class BaseModel that defines all common attributes/methods for other classes
 """
+import uuid
+from datetime import datetime
+import models
+
+
 class BaseModel:
     """
     A class tha 
@@ -35,13 +35,13 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
+            models.storage.new(self)
 
     def save(self):
         """Update the instance of object with current date and time
         """
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def __str__(self):
         """Return a string representation of BaseModel
@@ -52,8 +52,8 @@ class BaseModel:
         """Return the dictionary of object that contains keys and value
         """
         obj = self.__dict__.copy()
-        obj["__class__"] = self.__class__.__name__
         obj["update_at"] = self.updated_at.isoformat()
         obj["creat_at"] = self.created_at.isoformat()
+        obj["__class__"] = self.__class__.__name__
         return obj
 
