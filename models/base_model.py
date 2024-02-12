@@ -24,7 +24,7 @@ class BaseModel:
         size (int): the size of a side of the square
         """
         if kwargs:
-            datetime_format = "%Y-%m-%dt%H:%S.%f"
+            datetime_format = "%Y-%m-%dT%H:%M:%S.%f"
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
@@ -55,8 +55,8 @@ class BaseModel:
         """Return the dictionary of object that contains keys and value
         """
         obj = self.__dict__.copy()
-        obj["update_at"] = self.updated_at.isoformat()
-        obj["creat_at"] = self.created_at.isoformat()
+        obj["updated_at"] = self.updated_at.isoformat()
+        obj["created_at"] = self.created_at.isoformat()
         obj["__class__"] = self.__class__.__name__
         return obj
 
