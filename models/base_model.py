@@ -24,11 +24,12 @@ class BaseModel:
         size (int): the size of a side of the square
         """
         if kwargs:
+            daytime_format = "%Y-%m-%dt%H:%S.%f"
             for key, value in kwargs.items():
                 if key == "__class__":
                     continue
                 elif key == 'created_at' or key == 'updated_at':
-                    setattr(self, key, datetime.strptime(value, "%Y-%m-%dt%H:%S.%f"))
+                    setattr(self, key, datetime.strptime(value, daytime_format))
                 else:
                     setattr(self, key, value)
         else:
