@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
-"""
-HBNBCommand class is command-line interpreter for managing.
-"""
+"""HBNBCommand class is command-line interpreter for managing."""
 
 from cmd import Cmd
 from typing import IO
