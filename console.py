@@ -3,7 +3,18 @@
 from cmd import Cmd
 from typing import IO
 from models.user import BaseModel
-
+"""
+HBNBCommand class is command-line interpreter for  managing 
+public instance attributes:
+    prompt:
+    file:
+public instance methods:
+    help(self, line):
+    do_quit(self, line):
+    do_EOF(self, line):
+    default(self, line):
+    emptyline(self):
+"""
 class HBNBCommand(Cmd):
     # intro = "Welcome to HBNBCommand. Type help or ? to list commands.\n"
     prompt = "(hbnb) "
@@ -11,10 +22,13 @@ class HBNBCommand(Cmd):
 
 
     def __init__(self):
+        """Initializes a new instance of HBNBCommand class."""
         super().__init__()
         self.usrers = {}
 
     def help(self, line):
+        """Display a list of documented command.
+        """
         print("\nDocumented commands (type help <topic>):")
         print("========================================")
         print("EOF  help   quit")
@@ -28,9 +42,13 @@ class HBNBCommand(Cmd):
         return True
     
     def default(self, line):
+        """Handles the command if its not recognized
+        """
         return super().default(line)
 
     def emptyline(self):
+        """ Overrides the default behavior when empty line is entered.
+        """
         print(end="")
 
 
