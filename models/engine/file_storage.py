@@ -42,7 +42,7 @@ class FileStorage:
                         instance = BaseModel(**value)
                     if 'User' in key:
                         instance = User(**value)
-                    elif 'Plase' in key:
+                    elif 'Place' in key:
                         instance = Place(**value)
                     elif 'State' in key:
                         instance = State(**value)
