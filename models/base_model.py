@@ -55,8 +55,8 @@ class BaseModel:
         """Return the dictionary of object that contains keys and value
         """
         obj = self.__dict__.copy()
-        obj["updated_at"] = self.updated_at.isoformat()
-        obj["created_at"] = self.created_at.isoformat()
         obj["__class__"] = self.__class__.__name__
+        obj["created_at"] = self.created_at.isoformat() if isinstance(self.created_at, datetime) else self.created_at
+        obj["updated_at"] = self.updated_at.isoformat() if isinstance(self.updated_at, datetime) else self.updated_at
         return obj
 
