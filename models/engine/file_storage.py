@@ -2,7 +2,13 @@
 
 import json 
 from os import path
-
+from models.base_model import BaseModel
+from models.amenity import Amenity
+from models.user import User
+from models.city import City
+from models.place import Place
+from models.state import State
+from models.review import Review
 
 class FileStorage:
     __file_path = "file.json"
@@ -30,31 +36,27 @@ class FileStorage:
         try:
             with open(self.__file_path, "r") as file:
                 data = json.load(file)
-                from models.base_model import BaseModel
-                from models.amenity import Amenity
-                from models.user import User
-                from models.city import City
-                from models.place import Place
-                from models.state import State
-                from models.review import Review
                 for key, value in data.items():
-                    if 'BaseModel' in key:
+                    Cl_name, obj_id = key.split('.')
+                    if Cl_name in key:
                         instance = BaseModel(**value)
-                    if 'User' in key:
+                    if Cl_name in key:
                         instance = User(**value)
-                    elif 'Plase' in key:
+                    elif Cl_name in key:
                         instance = Place(**value)
-                    elif 'State' in key:
+                    elif Cl_name in key:
                         instance = State(**value)
-                    elif 'Review' in key:
+                    elif Cl_name in key:
                         instance = Review(**value)
-                    elif 'City' in key:
+                    elif Cl_name in key:
                         instance = City(**value)
-                    elif 'Amenity' in key:
+                    elif Cl_name in key:
                         instance = Amenity(**value)
                     else:
                         continue
                     self.__objects[key] = instance
-        except (json.JSONDecodeError, FileNotFoundError):
+        except FileNotFoundError:
             pass
+        except json.JSONDecodeError as e:
+            print(e)
                     
