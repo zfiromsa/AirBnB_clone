@@ -3,6 +3,7 @@
 import json 
 from os import path
 
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
@@ -37,26 +38,23 @@ class FileStorage:
                 from models.state import State
                 from models.review import Review
                 for key, value in data.items():
-                    Cl_name, obj_id = key.split('.')
-                    if Cl_name in key:
+                    if 'BaseModel' in key:
                         instance = BaseModel(**value)
-                    if Cl_name in key:
+                    if 'User' in key:
                         instance = User(**value)
-                    elif Cl_name in key:
+                    elif 'Plase' in key:
                         instance = Place(**value)
-                    elif Cl_name in key:
+                    elif 'State' in key:
                         instance = State(**value)
-                    elif Cl_name in key:
+                    elif 'Review' in key:
                         instance = Review(**value)
-                    elif Cl_name in key:
+                    elif 'City' in key:
                         instance = City(**value)
-                    elif Cl_name in key:
+                    elif 'Amenity' in key:
                         instance = Amenity(**value)
                     else:
                         continue
                     self.__objects[key] = instance
-        except FileNotFoundError:
+        except (json.JSONDecodeError, FileNotFoundError):
             pass
-        except json.JSONDecodeError as e:
-            print(e)
                     
