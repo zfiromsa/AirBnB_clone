@@ -12,17 +12,15 @@ class HBNBCommand(Cmd):
 
     public instance attributes:
         prompt: str - the prompt displayed to the user.
-
+    
     public instance methods:
         help(self, line): Display a list of documented command.
         do_quit(self, line): Quit command to exit the program.
-        do_EOF(self, line): EOF command to exit the program
-        default(self, line): Handles the command if its not recognized
+        do_EOF(self, line): EOF command to exit the program.
+        default(self, line): Handles the command if its not recognized.
         emptyline(self): Overrides the default behavior when empty line is entered.
     """
 
-
-    # intro = "Welcome to HBNBCommand. Type help or ? to list commands.\n"
     prompt = "(hbnb) "
 
     def __init__(self):
