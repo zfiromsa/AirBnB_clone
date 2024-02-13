@@ -4,12 +4,14 @@ from cmd import Cmd
 from typing import IO
 from models.user import BaseModel
 
+"""HBNBCommand class is command-line interpreter for managing."""
+
 class HBNBCommand(Cmd):
     """
     HBNBCommand class is command-line interpreter for managing.
 
     public instance attributes:
-        prompt: str - the prompt displayed to the user
+        prompt: str - the prompt displayed to the user.
 
     public instance methods:
         help(self, line): Display a list of documented command.
@@ -43,7 +45,7 @@ class HBNBCommand(Cmd):
         return True
     
     def default(self, line):
-        """Handles the command if its not recognized."""
+        """Handle the command if its not recognized."""
         return super().default(line)
 
     def emptyline(self):
