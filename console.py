@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
+"""
+HBNBCommand class is command-line interpreter for managing.
+"""
+
 from cmd import Cmd
 from typing import IO
 from models.user import BaseModel
-
-"""HBNBCommand class is command-line interpreter for managing."""
 
 class HBNBCommand(Cmd):
     """
