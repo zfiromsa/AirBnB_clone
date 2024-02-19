@@ -1,17 +1,16 @@
-header {
-    background-color: white;
+header{
+    color: white;
     height: 70px;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
-    /* To align logo to center*/
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
 }
-
-.logo {
+.logo{
     background-image: url(../images/logo.png);
-    width: 136px;
-    height: 60px;
+    margin-left: 25px;
     position: absolute;
-    left: 20px;
+    width: 135px;
+    height: 63px;
 }
